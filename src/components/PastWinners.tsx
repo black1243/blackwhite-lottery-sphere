@@ -46,30 +46,30 @@ export const PastWinners = () => {
   return (
     <Card className="fixed bottom-0 left-0 right-0 bg-lottery-background/80 backdrop-blur-md border-t border-lottery-accent/20">
       <div className="container py-4">
-        <h2 className="text-lottery-foreground text-lg font-semibold mb-2">Past Winners</h2>
+        <h2 className="text-[#9b87f5] text-lg font-semibold mb-2">Past Winners</h2>
         <div className="overflow-x-auto">
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Wallet</TableHead>
-                <TableHead>Amount (SOL)</TableHead>
-                <TableHead className="hidden md:table-cell">Transaction</TableHead>
-                <TableHead className="hidden md:table-cell">Date</TableHead>
+                <TableHead className="text-[#9b87f5]">Wallet</TableHead>
+                <TableHead className="text-[#9b87f5]">Amount (SOL)</TableHead>
+                <TableHead className="hidden md:table-cell text-[#9b87f5]">Transaction</TableHead>
+                <TableHead className="hidden md:table-cell text-[#9b87f5]">Date</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {isLoading ? (
                 <TableRow>
-                  <TableCell colSpan={4} className="text-center">Loading winners...</TableCell>
+                  <TableCell colSpan={4} className="text-center text-[#9b87f5]">Loading winners...</TableCell>
                 </TableRow>
               ) : winners?.map((winner, index) => (
                 <TableRow key={winner.signature}>
-                  <TableCell className="font-mono">{winner.walletAddress}</TableCell>
-                  <TableCell>{winner.amount} SOL</TableCell>
-                  <TableCell className="hidden md:table-cell font-mono">
+                  <TableCell className="font-mono text-[#9b87f5]">{winner.walletAddress}</TableCell>
+                  <TableCell className="text-[#9b87f5]">{winner.amount} SOL</TableCell>
+                  <TableCell className="hidden md:table-cell font-mono text-[#9b87f5]">
                     {winner.signature.slice(0, 8)}...
                   </TableCell>
-                  <TableCell className="hidden md:table-cell">
+                  <TableCell className="hidden md:table-cell text-[#9b87f5]">
                     {new Date(winner.timestamp).toLocaleDateString()}
                   </TableCell>
                 </TableRow>
