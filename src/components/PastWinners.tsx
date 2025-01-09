@@ -50,8 +50,9 @@ export const PastWinners = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
+      className="relative z-10 w-full"
     >
-      <Card className="fixed bottom-0 left-0 right-0 bg-lottery-background/80 backdrop-blur-md border-t border-lottery-accent/20 h-[400px]">
+      <Card className="bg-lottery-background/80 backdrop-blur-md border-t border-lottery-accent/20 h-[400px]">
         <div className="container py-4 h-full">
           <h2 className="text-[#9b87f5] text-lg font-semibold mb-2">Past Winners</h2>
           <ScrollArea className="h-[calc(400px-6rem)]">
