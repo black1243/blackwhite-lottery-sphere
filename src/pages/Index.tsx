@@ -1,10 +1,11 @@
 import { Timer } from "@/components/Timer";
 import { TicketPurchase } from "@/components/TicketPurchase";
 import { PastWinners } from "@/components/PastWinners";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Wallet } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
+import { SpaceBackground } from "@/components/SpaceBackground";
 
 const Index = () => {
   const [wallet, setWallet] = useState<any>(null);
@@ -42,6 +43,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-lottery-background to-lottery-background/90 relative overflow-hidden">
+      {/* Space Background */}
+      <SpaceBackground />
+      
       {/* Wallet Connection Button */}
       <div className="absolute top-4 right-4 z-20">
         <Button
@@ -53,12 +57,6 @@ const Index = () => {
         </Button>
       </div>
 
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 pointer-events-none"
-        style={{ backgroundImage: 'url(/planet.img)' }}
-      />
-      
       {/* Background Effect */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_70%)] pointer-events-none" />
       
