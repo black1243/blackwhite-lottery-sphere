@@ -22,19 +22,19 @@ const fetchWinnerTransactions = async (): Promise<WinnerTransaction[]> => {
       signature: "5xhvH9qb8CJc...",
       walletAddress: "8x4f...3d2e",
       amount: 5,
-      timestamp: new Date(Date.now() - 86400000).toISOString(),
+      timestamp: new Date().toISOString(), // Using current time
     },
     {
       signature: "3nKjL7mP9wRx...",
       walletAddress: "2a9b...7c1d",
       amount: 3,
-      timestamp: new Date(Date.now() - 172800000).toISOString(),
+      timestamp: new Date(Date.now() - 3600000).toISOString(), // 1 hour ago
     },
     {
       signature: "9pQrM4vN2sYt...",
       walletAddress: "6e5d...9f8g",
       amount: 7,
-      timestamp: new Date(Date.now() - 259200000).toISOString(),
+      timestamp: new Date(Date.now() - 7200000).toISOString(), // 2 hours ago
     },
   ];
 };
@@ -51,10 +51,10 @@ export const PastWinners = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <Card className="fixed bottom-0 left-0 right-0 bg-lottery-background/80 backdrop-blur-md border-t border-lottery-accent/20 max-h-[30vh]">
+      <Card className="fixed bottom-0 left-0 right-0 bg-lottery-background/80 backdrop-blur-md border-t border-lottery-accent/20 h-[400px]">
         <div className="container py-4 h-full">
           <h2 className="text-[#9b87f5] text-lg font-semibold mb-2">Past Winners</h2>
-          <ScrollArea className="h-[calc(30vh-6rem)]">
+          <ScrollArea className="h-[calc(400px-6rem)]">
             <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
@@ -62,7 +62,7 @@ export const PastWinners = () => {
                     <TableHead className="text-[#9b87f5]">Wallet</TableHead>
                     <TableHead className="text-[#9b87f5]">Amount (SOL)</TableHead>
                     <TableHead className="hidden md:table-cell text-[#9b87f5]">Transaction</TableHead>
-                    <TableHead className="hidden md:table-cell text-[#9b87f5]">Date</TableHead>
+                    <TableHead className="hidden md:table-cell text-[#9b87f5]">Time</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -100,7 +100,7 @@ export const PastWinners = () => {
                         {winner.signature.slice(0, 8)}...
                       </TableCell>
                       <TableCell className="hidden md:table-cell text-[#9b87f5] group-hover:text-white transition-colors">
-                        {new Date(winner.timestamp).toLocaleDateString()}
+                        {new Date(winner.timestamp).toLocaleTimeString()}
                       </TableCell>
                     </motion.tr>
                   ))}
